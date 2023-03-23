@@ -1,0 +1,30 @@
+# General
+.DS_Store
+
+# Python
+.ipynb_checkpoints
+*.pyc
+*.prof
+__pycache__
+
+# Editor/IDE
+*~
+\#*\#
+.\#*
+.idea
+
+# Local development
+db.sqlite3
+
+*.sql
+# Staticfiles
+static
+
+# Project specific
+paraiso/movies/migrations/
+*_data
+*.pgp
+*.zip
+
+staticfiles
+staticsite

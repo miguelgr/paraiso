@@ -1,0 +1,19 @@
+{% extends "movies/base.html" %}
+{% load static %}
+
+{% block title %}
+{{ block.super }} |  {{ movie.title }}
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+{% endblock %}
+
+{% block body %}
+<article>
+  <header itemscope itemtype="http://schema.org/BlogPosting">
+    <a itemprop="url" itemprop="headline" href="{% url 'movie-detail' slug=movie.slug %}"><h3>{{ movie.title|upper }}</h3></a>
+    <link itemprop="url" href="{% url 'movie-detail' slug=movie.slug %}">
+  </header>
+</article>
+{% endblock %}
