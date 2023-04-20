@@ -9,3 +9,23 @@ services:
       - .env
     volumes:
       - .:/app
+    depends_on:
+      ipfs:
+        condition: service_healthy
+
+  ipfs:
+    image: ipfs/kubo:latest
+    ports:
+      - "5001:5001" # ipfs api - expose if needed/wanted
+      - "8080:8080" # ipfs gateway - expose if needed/wanted
+      # - "4001:4001" # ipfs swarm - expose if needed/wanted
+    env_file:
+      - .env
+    volumes:
+      - ./ipfs_data:/data/ipfs
+    healthcheck:
+      # cid of an empty directory
+      test: ipfs dag stat /ipfs/QmUNLLsPACCz1vLxQVkXqqLX5R1X345qqfHbsf67hvA3Nn || exit 1
+      interval: 5s
+      retries: 5
+      start_period: 10s

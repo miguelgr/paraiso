@@ -19,11 +19,11 @@ def movie_list(request, page):
 def movie_detail(request, slug):
     movie = Movie.objects.filter(slug=slug).first()
     # Have an static HTML on IPFS
-    if movie and movie.archive_file:
-        return HttpResponse(
-            movie.archive_file.read(),
-            headers={"x-ipfs-path": movie.archive_file.url},
-        )
+    # if movie and movie.archive_file:
+    #     return HttpResponse(
+    #         movie.archive_file.read(),
+    #         headers={"x-ipfs-path": movie.archive_file.url},
+    #     )
 
     return (
         TemplateResponse(request, "paraiso/movie_detail.html", {"movie": movie})

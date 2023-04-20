@@ -2,3 +2,5 @@
 
 ipdb
 pytest
+pytest-django
+factory_boy

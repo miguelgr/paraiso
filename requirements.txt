@@ -3,3 +3,4 @@ django-filter
 django-environ==0.10.0
 djangorestframework==3.14.0
 django_distill
+git+https://github.com/skatepedia/django-ipfs-storage
